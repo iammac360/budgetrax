@@ -28,7 +28,8 @@ class Home extends MY_Controller {
 			'user_name'		=> he($this->user_info['name']),
 			'profile_pic'	=> $this->graph_url.$this->user_id.'/picture?width=140&height=140',
 			'budget_types'	=> $budget_types_name,
-			'categories' 	=> $categories_name
+			'categories' 	=> $categories_name,
+			'budgets' 		=> $this->get_all_users_budgets()
 		);
 
 	}
@@ -40,6 +41,10 @@ class Home extends MY_Controller {
 
 		$this->userFBjs = TRUE;
 		$this->css = array('custom-style.css');
+
+		// echo '<pre>';
+		// var_dump($this->get_all_users_budgets());
+		// echo '</pre>';
 
 		$this->_render('pages/home');
 		
@@ -56,6 +61,13 @@ class Home extends MY_Controller {
 		{
 			return TRUE;
 		}
+	}
+
+	private function get_all_users_budgets()
+	{
+		$user = User::first(array('conditions' => 'fb_id ='.$this->user_id));
+		$budget = Budget::all(array('conditions' => 'user_id ='.$user->id));
+		return $budget;
 	}
 	
 }

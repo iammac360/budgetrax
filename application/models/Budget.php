@@ -10,7 +10,7 @@ class Budget extends ActiveRecord\Model {
 	);
 
 	static $belongs_to =  array(
-		array('user', 'foreign_key' => 'user_id'),
+		array('user'),
 		array('budget_set'),
 		array('user_defined_category'),
 		array('budget_type')

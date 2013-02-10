@@ -41,7 +41,14 @@ class Process extends MY_Controller {
 				// echo '<pre>';
 				// var_dump($budget->has_errors());
 				// echo '</pre>';
-				echo json_encode($budget->get_errors());
+				$response = array('errrors' => $budget->get_errors());
+				echo json_encode($response);
+			}
+			else
+			{
+				$response = array('sucesss' => 'true');
+				echo json_encode($response);
+				redirect('home');
 			}
 		}
 	}

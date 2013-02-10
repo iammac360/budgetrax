@@ -20,7 +20,7 @@
 			padding-bottom: 40px;
 		}
     </style>
-	<link rel="stylesheet" href="<?php echo base_url(CSS."bootstrap-responsive940.min.css");?>">
+	<link rel="stylesheet" href="<?php echo base_url(CSS."bootstrap-responsive.min.css");?>">
 	<link rel="stylesheet" href="<?php echo base_url(CSS."global.css");?>">
 
 	<!-- extra CSS-->
